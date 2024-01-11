@@ -51,7 +51,7 @@ export let RestaurantsList = [
     name: "Sushi Haven",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjLWXHWVxXCZuI7phtUjgvjX7MpS0RHFlo7Muiagd0nOBebbf4TN_Xj3Fd6RrcU21K_J4&usqp=CAU",
-    rating: 4.8,
+    rating: 3.8,
     deliveryTime: "40 minutes",
     price: "₹180 for two",
     cuisines: ["Japanese", "Sushi"],
@@ -201,7 +201,7 @@ export let RestaurantsList = [
     name: "maggie love",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM46fltK4wMwOXICP-xazXBAi0o12ZO8lPVA&usqp=CAU",
-    rating: 4.7,
+    rating: 3.7,
     deliveryTime: "33 minutes",
     price: "₹120 for two",
   },
@@ -291,7 +291,7 @@ export let RestaurantsList = [
     name: "Sweet Tooth Delights",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTuf5mB0W6lYMTyUFRNw3kQ3Wt95iSfrJzNiBAzCFN77gTAN1tuTJTzB_EuanTm2jN9vs&usqp=CAU",
-    rating: 4.5,
+    rating: 3.5,
     deliveryTime: "20 minutes",
     price: "₹80 for two",
     cuisines: ["Desserts", "Sweet"],
