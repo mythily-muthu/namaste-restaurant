@@ -10,7 +10,7 @@ const Header = () => {
         <h2 className="text-sm font-semibold text-orange-600">NAMASTE FOOD</h2>
       </div>
       <div className="flex gap-x-8 items-center uppercase">
-        <ul className="flex gap-x-8  text-sm  cursor-pointer">
+        <ul className="flex gap-x-8  text-sm  cursor-pointer tracking-wider font-light">
           <li>home</li>
           <li>about</li>
           <li>offers</li>
