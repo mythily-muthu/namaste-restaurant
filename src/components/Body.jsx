@@ -9,10 +9,9 @@ import axios from "axios";
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [searchText, setsearchText] = useState("");
   // const [restaurants, setRestaurants] = useState(RestaurantsList);
   // const [filteredRestaurant, setFilteredRestaurant] = useState(RestaurantsList);
-  const [searchText, setsearchText] = useState("");
-  console.log("f", filteredRestaurant);
 
   const getAllRestaurants = async () => {
     let res = await axios.get(Swiggy_URL);
@@ -52,14 +51,30 @@ const Body = () => {
             setsearchText(e.target.value);
           }}
         />
-        <IoIosSearch
+        {/* <IoIosSearch
           className="w-7 h-6 absolute right-4 flex items-center top-3 cursor-pointer hover:text-orange-600 "
           onClick={() => {
-            console.log("you searched:", searchText);
             let filteredRestaurant = restaurants.filter((restaurant) =>
               restaurant.name.toLowerCase().includes(searchText.toLowerCase())
             );
             setFilteredRestaurant(filteredRestaurant);
+            console.log("f", filteredRestaurant);
+          }}
+        /> */}
+        <IoIosSearch
+          className="w-7 h-6 absolute right-4 flex items-center top-3 cursor-pointer hover:text-orange-600 "
+          onClick={() => {
+            let filteredRestaurant = restaurants.filter((restaurant) => {
+              // Check if restaurant and restaurant.info.name are defined before using toLowerCase
+              if (restaurant && restaurant.info.name) {
+                return restaurant?.info?.name
+                  ?.toLowerCase()
+                  .includes(searchText.toLowerCase());
+              }
+              return false; // If restaurant or restaurant.info.name is undefined, filter it out
+            });
+            setFilteredRestaurant(filteredRestaurant);
+            console.log("filtered restaurants", filteredRestaurant);
           }}
         />
       </div>
@@ -79,7 +94,7 @@ const Body = () => {
         </button>
       </div>
       <div className="grid grid-cols-4 w-full gap-10 py-3">
-        {restaurants.map((card) => {
+        {filteredRestaurant.map((card) => {
           return <RestaurantCard card={card} key={card.info.id} />;
         })}
       </div>

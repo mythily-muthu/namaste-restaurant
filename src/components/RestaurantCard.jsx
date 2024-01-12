@@ -1,6 +1,5 @@
 import React from "react";
 import star from ".././utils/star.png";
-import { Cloudinary } from "@cloudinary/url-gen";
 
 const RestaurantCard = ({ card }) => {
   return (
