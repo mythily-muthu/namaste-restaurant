@@ -3,16 +3,15 @@ import star from ".././utils/star.png";
 import { Cloudinary } from "@cloudinary/url-gen";
 
 const RestaurantCard = ({ card }) => {
-  const cloudName = "ddxuovww2"; // Replace with your Cloudinary Cloud Name
-  const apiKey = "199791431773521"; // Replace with your Cloudinary API Key
-  const imageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/${card.info.cloudinaryImageId}?api_key=${apiKey}`;
-  console.log("imageurl:", card.info.cloudinaryImageId);
   return (
     <div className="flex flex-col cursor-pointer " key={card.info.id}>
       <div className="w-[233px] flex gap-x-4 flex-col rounded-2xl overflow-hidden ">
         <div className="w-[233px] h-[142px] ">
           <img
-            src={imageUrl}
+            src={
+              "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+              card.info.cloudinaryImageId
+            }
             alt={card.info.name}
             className="w-full h-full object-fill "
           />

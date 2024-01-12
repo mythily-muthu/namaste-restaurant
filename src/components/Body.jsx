@@ -13,6 +13,7 @@ const Body = () => {
   // const [filteredRestaurant, setFilteredRestaurant] = useState(RestaurantsList);
   const [searchText, setsearchText] = useState("");
   console.log("f", filteredRestaurant);
+
   const getAllRestaurants = async () => {
     let res = await axios.get(Swiggy_URL);
     console.log(
