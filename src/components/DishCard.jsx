@@ -1,17 +1,17 @@
 import React from "react";
-
+// https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png
 const DishCard = (dish) => {
   console.log("img:", dish?.dish?.imageId);
   return (
-    <div className="grid grid-cols-5 w-full gap-4 ">
+    <div className=" w-full gap-4 ">
       <div className="flex w-full">
         <img
-          src={dish?.dish?.imageId}
+          width={"100px"}
+          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/${dish?.dish?.imageId}`}
           alt="img"
-          className="w-20 h-20  object-cover"
+          className="w-32 h-32  object-cover"
         />
       </div>
-      <h2>{dish.dish.action.text}</h2>
     </div>
   );
 };

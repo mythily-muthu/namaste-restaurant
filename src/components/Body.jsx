@@ -95,7 +95,7 @@ const Body = () => {
         <div>
           <h1 className="font-bold text-2xl">What's on your mind?</h1>
         </div>
-        <div className="flex">
+        <div className="flex overflow-scroll gap-4 ">
           {dishesList.map((dish) => {
             return <DishCard dish={dish} key={dish.id} />;
           })}
