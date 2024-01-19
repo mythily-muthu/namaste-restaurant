@@ -12,17 +12,15 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setsearchText] = useState("");
   const [dishesList, setDishesList] = useState([]);
-  // const [restaurants, setRestaurants] = useState(RestaurantsList);
-  // const [filteredRestaurant, setFilteredRestaurant] = useState(RestaurantsList);
 
   const getAllRestaurants = async () => {
     let res = await axios.get(Swiggy_URL);
     console.log("dffsf", res.data);
-    console.log(
-      "res lists:",
-      res.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+    // console.log(
+    //   "restaurants:",
+    //   res.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants
+    // );
     setRestaurants(
       res?.data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -30,11 +28,8 @@ const Body = () => {
     const restaurantsData =
       res?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
-    if (restaurantsData) {
-      setRestaurants(restaurantsData);
-    } else {
-      console.log("error unable to receive data ");
-    }
+    setRestaurants(restaurantsData);
+    setFilteredRestaurant(restaurantsData);
   };
 
   const getAllDishes = async () => {
@@ -91,11 +86,11 @@ const Body = () => {
         />
       </div>
       {/* whats on your mind */}
-      <div className="flex flex-col gap-y-5 py-5">
+      <div className="flex flex-col gap-y-5 py-7">
         <div>
           <h1 className="font-bold text-2xl">What's on your mind?</h1>
         </div>
-        <div className="flex overflow-scroll gap-4 ">
+        <div className="flex flex-wrap">
           {dishesList.map((dish) => {
             return <DishCard dish={dish} key={dish.id} />;
           })}
@@ -107,8 +102,9 @@ const Body = () => {
         <button
           onClick={() => {
             let filteredRestaurants = restaurants.filter(
-              (restaurant) => restaurant.info.avgRating > 4.1
+              (restaurant) => restaurant.info.avgRating > 4.3
             );
+            console.log("fr:", filteredRestaurants);
             setFilteredRestaurant(filteredRestaurants);
           }}
           className="flex px-4 py-1 rounded-md border bg-orange-600 text-white hover:border-orange-700 hover:tracking-wide uppercase text-sm font-semibold tracking-wide"
@@ -117,7 +113,7 @@ const Body = () => {
         </button>
       </div>
       <div className="grid grid-cols-4 w-full gap-10 py-3">
-        {restaurants.map((card) => {
+        {filteredRestaurant.map((card) => {
           return <RestaurantCard card={card} key={card.info.id} />;
         })}
       </div>

@@ -17,20 +17,21 @@ const RestaurantCard = ({ card }) => {
         </div>
       </div>
       <div className="w-full p-3">
-        <h1 className="text-lg font-medium text-gray-700 tracking-wide">
+        <h1 className="text-lg font-bold text-gray-800 tracking-wide">
           {card.info.name}
         </h1>
-        <div className="flex gap-1 font-medium">
-          <img src={star} alt="rating" className="w-5 h-5" />
-          <h2 className="text-base font-medium text-gray-800 ">
+        <div className="flex gap-1 items-center font-medium">
+          <img src={star} alt="rating" className="w-4 h-4" />
+          <h2 className="text-base font-medium text-gray-700 ">
             {card.info.avgRating}
           </h2>
-          <span className="flex items-center font-bold">.</span>
+          <span className="flex items-center font-bold text-gray-700 ">.</span>
           <h2>{card.info.sla.slaString}</h2>
         </div>
-        <h2 className="flex font-light text-gray-500 text-base tracking-wider">
-          {card.info.cuisines}
+        <h2 className="flex font-light text-gray-500 text-sm tracking-wide">
+          {card.info.cuisines.slice(0, 3).join(" ")}
         </h2>
+
         <h2 className="flex text-md font-medium">{card.info.costForTwo}</h2>
       </div>
     </div>
