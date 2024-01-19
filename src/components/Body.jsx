@@ -16,11 +16,7 @@ const Body = () => {
   const getAllRestaurants = async () => {
     let res = await axios.get(Swiggy_URL);
     console.log("dffsf", res.data);
-    // console.log(
-    //   "restaurants:",
-    //   res.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-    //     ?.restaurants
-    // );
+
     setRestaurants(
       res?.data?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -34,19 +30,10 @@ const Body = () => {
 
   const getAllDishes = async () => {
     let res = await axios.get(Swiggy_URL);
-    console.log(
-      "dishes:",
-      res.data?.data?.cards[0]?.card?.card?.imageGridCards.info
-    );
     setDishesList(res.data?.data?.cards[0]?.card?.card?.imageGridCards.info);
     const dishesData =
       res.data?.data?.cards[0]?.card?.card?.imageGridCards.info;
-
-    if (dishesData) {
-      setDishesList(dishesData);
-    } else {
-      console.log("error unable to receive data ");
-    }
+    setDishesList(dishesData);
   };
   useEffect(() => {
     getAllDishes();
@@ -96,7 +83,6 @@ const Body = () => {
           })}
         </div>
       </div>
-
       <div className="flex cursor-pointer ">
         {/* top rated restaurant filter */}
         <button
