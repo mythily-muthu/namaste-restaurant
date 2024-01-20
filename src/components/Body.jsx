@@ -6,6 +6,7 @@ import RestaurantCard from "./RestaurantCard";
 import DishCard from "./DishCard";
 // import Shimmer from "./Shimmer";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -100,7 +101,11 @@ const Body = () => {
       </div>
       <div className="grid grid-cols-4 w-full gap-10 py-3">
         {filteredRestaurant.map((card) => {
-          return <RestaurantCard card={card} key={card.info.id} />;
+          return (
+            <Link to={"/restaurants/" + card.info.id} key={card.info.id}>
+              <RestaurantCard card={card} />
+            </Link>
+          );
         })}
       </div>
     </div>
