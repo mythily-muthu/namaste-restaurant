@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { Swiggy_URL } from "../constants";
-import { RestaurantsList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import DishCard from "./DishCard";
 // import Shimmer from "./Shimmer";

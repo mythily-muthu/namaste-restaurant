@@ -5,22 +5,12 @@ import { useParams } from "react-router-dom";
 import Shimmer from "../components/Shimmer";
 import orangeStar from "../utils/orangeStar.png";
 import RestaurantDetails from "./RestaurantDetails";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
+  const resInfo = useRestaurantMenu(resId);
   console.log("resid", resId);
-
-  const getAllResInfos = async () => {
-    let res = await axios.get(ResMenu_URL + resId);
-    setResInfo(res.data);
-    console.log("resmenu", res.data);
-  };
-
-  useEffect(() => {
-    getAllResInfos();
-  }, []);
-
   if (resInfo === null) return <Shimmer />;
 
   const {
