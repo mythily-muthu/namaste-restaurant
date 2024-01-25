@@ -4,6 +4,7 @@ import { Swiggy_URL } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import DishCard from "./DishCard";
 // import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -42,6 +43,14 @@ const Body = () => {
   useEffect(() => {
     getAllRestaurants();
   }, []);
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return (
+      <h1 className="font-light flex justify-center items-center text-xl ">
+        Looks like you are offline, Please check your internet connection
+      </h1>
+    );
 
   return (
     <div className="bg-bgcol or w-full px-[15%] py-[2%] flex flex-col gap-y-5">
