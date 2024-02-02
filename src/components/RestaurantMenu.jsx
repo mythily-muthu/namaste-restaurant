@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ResMenu_URL } from "../constants";
 import { useParams } from "react-router-dom";
 import Shimmer from "../components/Shimmer";
-import orangeStar from "../utils/orangeStar.png";
+
 import RestaurantDetails from "./RestaurantDetails";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
