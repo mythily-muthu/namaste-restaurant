@@ -25,7 +25,9 @@ const Contact = () => {
     validationForm(name, age, newEmail);
   };
 
-  const handleSubmit = (name, age, email) => {
+  const handleSubmit = (name, age, email, e) => {
+    e.preventDefault();
+    console.log("Form Submitted");
     console.log("Form submitted:", { name, age, email });
   };
 
@@ -40,7 +42,7 @@ const Contact = () => {
     const ageValidation = newAge !== "" && !isNaN(newAge);
 
     // based on validation button is enabled/disabled
-    setisSubmitDisabled(!(nameValidation, ageValidation, emailValidation));
+    setisSubmitDisabled(!(nameValidation && ageValidation && emailValidation));
   };
   return (
     <div className=" h-full w-full">
@@ -55,9 +57,7 @@ const Contact = () => {
               value={name}
               onChange={handleName}
             />
-            {
-              
-            }
+            {}
           </div>
           {/* age */}
           <div className="py-4">
