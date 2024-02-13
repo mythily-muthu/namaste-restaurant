@@ -28,7 +28,8 @@ const Contact = () => {
   const handleSubmit = (name, age, email, e) => {
     e.preventDefault();
     console.log("Form Submitted");
-    console.log("Form submitted:", { name, age, email });
+    console.log("Form submitted main:", { name, age, email });
+    disabled(isSubmitDisabled);
   };
 
   const validationForm = (newName, newAge, newEmail) => {
@@ -64,7 +65,7 @@ const Contact = () => {
             <input
               placeholder="Enter your age.."
               className="p-2 border border-gray-200 cursor-pointer rounded-md w-full"
-              type="age"
+              type="text"
               value={age}
               onChange={handleAge}
             />
